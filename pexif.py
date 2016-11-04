@@ -454,7 +454,7 @@ class IfdData(object):
                                                             the_data[i*8:
                                                                      i*8+8])))
                 else:
-                    raise "Can't handle this"
+                    raise Exception("Can't handle this")
 
                 if (byte_size > 4):
                     debug("%s" % actual_data)
@@ -524,7 +524,7 @@ class IfdData(object):
                 for i in range(components):
                     actual_data += pack(e + t, *the_data[i].as_tuple())
             else:
-                raise "Can't handle this", exif_type
+                raise Exception("Can't handle this", exif_type)
             if (byte_size) > 4:
                 output_data += actual_data
                 actual_data = pack(e + "I", data_offset)
